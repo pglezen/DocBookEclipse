@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article [
+  <!ENTITY Introduction    SYSTEM "Introduction.xml">
+  <!ENTITY GettingFiles    SYSTEM "GettingFiles.xml">
+  <!ENTITY InstallingFiles SYSTEM "InstallingFiles.xml">
+  <!ENTITY References      SYSTEM "references.xml">
+]>
+<article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink">
+  <info>
+    <title>DocBook with Eclipse</title>
+    <date>August, 2012</date>
+    <author>
+      <personname>
+        <firstname>Paul</firstname>
+        <surname>Glezen</surname>
+      </personname>
+      <affiliation>
+        <jobtitle>IT Specialist</jobtitle>
+        <orgname>IBM</orgname>
+        <orgdiv>Software Services for WebSphere</orgdiv>
+      </affiliation>
+    </author>
+    <abstract>
+      <para>
+        This document explains how to quickly start working with
+        DocBook using your Eclipse Web Tools Platform (WTP)
+        environment.  WTP is required only for the XSLT features
+        it provides.  This article covers Mac, Linux, and Windows.
+      </para>
+    </abstract>
+  </info>
+  
+  <section xml:id="sec.intro">&Introduction;</section>
+  <section xml:id="sec.GettingFiles">&GettingFiles;</section>
+  <section xml:id="sec.InstallingFiles">&InstallingFiles;</section>
+</article>

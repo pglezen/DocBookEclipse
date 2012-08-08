@@ -1,0 +1,26 @@
+<bibliography>
+  <title>References</title>
+  
+  <bibliomixed xml:id="ref.DefinitiveGuide" >
+    <title>DocBook: The Definitive Guide</title>,
+    <date>April, 2012</date>
+    <author>
+      <personname>
+        <firstname>Norman</firstname>
+        <surname>Walsh</surname>
+      </personname>
+    </author>
+  </bibliomixed>
+  
+  <bibliomixed xml:id="ref.CompleteGuide" >
+    <title>DocBook XSL: The Complete Guide</title>,
+    <date>September, 2007</date> 
+    <author>
+      <personname>
+        <firstname>Bob</firstname>
+        <surname>Stayton</surname>
+      </personname>
+    </author>
+  </bibliomixed>
+
+</bibliography>

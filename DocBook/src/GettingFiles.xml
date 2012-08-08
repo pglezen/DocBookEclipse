@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+  <title>Getting Files</title>
+</info>
+<para>
+DocBook is basically a set of stylesheets that convert our content-centric
+XML source files into a desired format.  So acquiring DocBook amounts to
+acquiring these stylesheets.  
+</para>
+<section>
+   <info>
+      <title>DocBook Stylesheets</title>
+   </info>
+<para>
+The DocBook stylesheets themselves are located at the following link.
+</para>
+<simpara>
+<link xlink:href="http://sourceforge.net/projects/docbook/files/docbook-xsl-ns/"/>
+</simpara>
+<para>
+Download the latest version in an archive format suitable for your OS.
+</para>
+</section>
+
+<section>
+   <info>
+      <title>Formatting Objects (FO)</title>
+   </info>
+<para>
+If you want to generate PDF files, then there are a few more downloads.  DocBook
+doesn't generate PDF files directly.  Rather, it generates an XML document
+structured as <firstterm>Formatting Objects</firstterm>, or FO.  A separate
+processor developed by an Apache project called
+<firstterm>Formatting Object Processor</firstterm> (FOP) takes the FO output
+from DocBook and produces a PDF file.
+</para>
+
+<figure xml:id="fig.docbook2pdf">
+  <title>Generating PDF from DocBook</title>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/docbook2pdf.svg"/>
+    </imageobject>
+    <textobject><phrase>Generating PDF from DocBook source</phrase></textobject>
+  </mediaobject>
+</figure>
+
+<para>
+FOP may be downloaded from the Apache FOP project.
+</para>
+<simpara>
+<link xlink:href="http://xmlgraphics.apache.org/fop/download.html"/>
+</simpara>
+<para>
+Choose the binary download.  You'll be asked to choose a mirror.  On the
+mirror site, choose the binaries folder and download the latest stable
+distribution in the archive format supported by your OS.
+</para>
+</section>
+
+<section>
+   <info>
+      <title>OFFO Hyphenation</title>
+   </info>
+<para>
+FOP uses a hyphenation toolkit that is part of the OFFO project.  The binary
+is downloaded from SourceForge.
+</para>
+<simpara>
+<link xlink:href="http://sourceforge.net/projects/offo/"/>
+</simpara>
+<para>
+Download the file <filename>offo-hyphenation-binary_v2.0.zip</filename>.
+</para>
+</section>

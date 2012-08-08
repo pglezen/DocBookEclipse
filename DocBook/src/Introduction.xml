@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+  <title>Introduction</title>
+</info>
+<para>
+For this version of the article, I'm going to assume you have some reason to
+learn DocBook rather than try to provide a motivation.  But just in case you
+stumbled on this document expecting an office suite replacement for products
+such as MS-Office, OpenOffice or LibreOffice, stop now.  DocBook is not a
+WYSIWYG product.  It has a considerable learning curve and should only be
+used by propeller-heads.
+</para>

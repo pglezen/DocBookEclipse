@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<project name="ClientGuide-XHTML5" basedir="..">
+
+  <description>
+   An Ant script for building DocBook with Eclipse as a single XHTML5 document.
+   </description>
+
+  <include file="build-core.xml" as="core"/>
+  
+  <property name="dir.html"    location="xhtml5" />
+  <property name="xslt.html"   location="${dir.docbook}/xhtml5/docbook.xsl" />
+  
+  <target name="init" depends="core.init" description="XHTML5 Init">
+    <echo>HTML Stylesheet = ${xslt.html}</echo>
+    <echo>HTML Directory  = ${dir.html} </echo>
+  </target>
+
+  <!-- ================================================================
+       Create single HTML page.
+       ================================================================
+    -->
+  <target name="html" depends="init" description="Create HTML Format.">
+    <property name="out.dir" location="out/xhtml5" />
+    <property name="out.file" value="DocBookEclipse.html" />
+    <property name="out.zip"  value="DocBookEclipseXHtml5.zip" />
+
+    <copy todir="${out.dir}/images" failonerror="true">
+      <fileset dir="${dir.images}" />
+    </copy>
+
+    <copy todir="${out.dir}" file="${dir.html}/main.css" />
+
+    <dependset verbose="true">
+      <srcfilelist refid="docbook.src" />
+      <srcfilelist dir="build" files="build-core.xml build-xhtml5.xml"/>
+      <srcfilelist dir="${dir.html}" files="main.css" />
+      <targetfilelist dir="${out.dir}" files="${out.file}" />
+      <targetfilelist dir="${basedir}/out" files="${out.zip}"/>
+    </dependset>
+
+    <xslt in="${dir.src}/DocBookMaster.xml" out="${out.dir}/${out.file}" style="${xslt.html}">
+      <factory name="org.apache.xalan.processor.TransformerFactoryImpl" />
+      <param name="html.stylesheet"            expression="main.css" />
+      <param name="xref.with.number.and.title" expression="0" />
+      <param name="section.autolabel"          expression="1" />
+      <param name="use.extensions"             expression="1" />
+      <param name="callouts.extension"         expression="1" />
+      <param name="bibliography.numbered"      expression="1" />
+    </xslt>
+  </target>
+
+  <target name="zip.html" description="Create archive.">
+    <zip destfile="out/${out.zip}">
+      <zipfileset dir="${out.dir}" prefix="DocBookEclipse"/>
+    </zip>
+  </target>
+
+  <target name="clean.html" description="Clean up HTML directory.">
+    <delete dir="out/html" failonerror="false" />
+    <delete file="out/${out.zip}" failonerror="false" />
+  </target>
+
+</project>

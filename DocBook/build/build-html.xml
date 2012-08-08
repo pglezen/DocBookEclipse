@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<project name="ClientGuide-HTML" basedir=".." default="core.usage">
+
+  <description>
+   An Ant script for building the FDC Client Guide as a single HTML document.
+   </description>
+
+  <include file="build-core.xml" as="core"/>
+  
+  <property name="dir.html"    location="html" />
+  <property name="xslt.html"   location="${dir.docbook}/html/docbook.xsl" />
+  
+  <target name="init" depends="core.init" description="HTML Init">
+    <echo>HTML Stylesheet = ${xslt.html}</echo>
+    <echo>HTML Directory  = ${dir.html} </echo>
+  </target>
+
+  <!-- ================================================================
+       Create single HTML page.
+       ================================================================
+    -->
+  <target name="html" depends="init" description="Create HTML Format.">
+    <property name="out.dir" location="out/html" />
+    <property name="out.file" value="ClientGuide.html" />
+    <property name="out.zip"  value="ClientGuideHtml.zip" />
+
+    <copy todir="${out.dir}/images" failonerror="true">
+      <fileset dir="${dir.images}" />
+    </copy>
+
+    <copy todir="${out.dir}" file="${dir.html}/esrc.css" />
+
+    <dependset verbose="true">
+      <srcfilelist refid="docbook.src" />
+      <srcfilelist dir="build" files="build-core.xml build-html.xml"/>
+      <srcfilelist dir="${dir.html}" files="esrc.css" />
+      <targetfilelist dir="${out.dir}" files="${out.file}" />
+      <targetfilelist dir="${basedir}/out" files="${out.zip}"/>
+    </dependset>
+
+    <xslt in="${dir.src}/ClientGuideMaster.xml" out="${out.dir}/${out.file}" style="${xslt.html}">
+      <factory name="org.apache.xalan.processor.TransformerFactoryImpl" />
+      <param name="html.stylesheet"            expression="esrc.css" />
+      <param name="xref.with.number.and.title" expression="0" />
+      <param name="section.autolabel"          expression="1" />
+      <param name="use.extensions"             expression="1" />
+      <param name="callouts.extension"         expression="1" />
+      <param name="bibliography.numbered"      expression="1" />
+    </xslt>
+  </target>
+
+  <target name="zip.html" description="Create archive.">
+    <zip destfile="out/${out.zip}">
+      <zipfileset dir="${out.dir}" prefix="ClientGuide"/>
+    </zip>
+  </target>
+
+  <target name="clean.html" description="Clean up HTML directory.">
+    <delete dir="out/html" failonerror="false" />
+    <delete file="out/${out.zip}" failonerror="false" />
+  </target>
+
+</project>
