@@ -2,7 +2,7 @@
 <project name="ClientGuide-ePub" basedir=".." default="core.usage">
 
   <description>
-   An Ant script for building the FDC Client Guide as an ePub.
+   An Ant script for building DocBook with Eclipse as an ePub.
    </description>
   
   <include file="build-core.xml" as="core"/>

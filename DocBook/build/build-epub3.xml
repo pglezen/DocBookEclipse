@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<project name="ClientGuide-ePub3" basedir=".." default="core.usage">
+<project name="DocBookEclipse-ePub3" basedir="..">
 
   <description>
-   An Ant script for building the FDC Client Guide as an ePub3 publication.
+   An Ant script for building DocBook in Eclipse as an ePub3 publication.
    </description>
   
   <include file="build-core.xml" as="core"/>
@@ -38,7 +38,7 @@
       <targetfilelist dir="${basedir}/out" files="${out.file}"/>
     </dependset>
 
-    <xslt in="${dir.src}/ClientGuideMaster.xml" out="${out.dir}/${dummy.file}" style="${xslt.epub}">
+    <xslt in="${dir.src}/DocBookMaster.xml" out="${out.dir}/${dummy.file}" style="${xslt.epub}">
       <factory name="org.apache.xalan.processor.TransformerFactoryImpl" />
       <param name="html.stylesheet"            expression="esrc.css" />
       <param name="xref.with.number.and.title" expression="0" />

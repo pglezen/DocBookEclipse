@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="ClientGuide-XHTML5" basedir="..">
+<project name="DocBookEclipse-XHTML5" basedir="..">
 
   <description>
    An Ant script for building DocBook with Eclipse as a single XHTML5 document.
