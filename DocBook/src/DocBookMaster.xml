@@ -3,6 +3,7 @@
   <!ENTITY Introduction    SYSTEM "Introduction.xml">
   <!ENTITY GettingFiles    SYSTEM "GettingFiles.xml">
   <!ENTITY InstallingFiles SYSTEM "InstallingFiles.xml">
+  <!ENTITY MacFiles        SYSTEM "InstallingMacFiles.xml">
   <!ENTITY References      SYSTEM "references.xml">
 ]>
 <article xmlns="http://docbook.org/ns/docbook"
@@ -33,5 +34,8 @@
   
   <section xml:id="sec.intro">&Introduction;</section>
   <section xml:id="sec.GettingFiles">&GettingFiles;</section>
-  <section xml:id="sec.InstallingFiles">&InstallingFiles;</section>
+  <section xml:id="sec.InstallingFiles">
+    &InstallingFiles;
+    &MacFiles;
+  </section>
 </article>
