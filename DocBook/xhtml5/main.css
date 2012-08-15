@@ -1,3 +1,7 @@
+h1.title, .author, .abstract-title {
+	text-align: center;
+}
+
 .emphasis {
 	font-weight: bold;
 }
@@ -16,10 +20,12 @@
 .abstract {
    border: solid blue;
    padding: 5px;
+   width: 600px;
+   margin: 10px auto;
 }
 .abstract p {
    font-style: italic;
 }
 .abstract p.title {
-   font-style: normal;
+   font-style: bold;
 }
