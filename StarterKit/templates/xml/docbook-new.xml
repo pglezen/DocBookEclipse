@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="xml_new" deleted="false" description="Begin an article using DocBook" enabled="true" name="DocBook Master">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;!DOCTYPE article [
+  &lt;!ENTITY chap1      SYSTEM "chap1.xml"&gt;
+  &lt;!ENTITY references SYSTEM "references.xml"&gt;
+]&gt;
+&lt;article xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"&gt;
+  &lt;info&gt;
+    &lt;title&gt;${cursor}&lt;/title&gt;
+    &lt;date&gt;Month, Year&lt;/date&gt;
+    &lt;author&gt;
+      &lt;orgname class="corporation"&gt;Some Company&lt;/orgname&gt;
+    &lt;/author&gt;
+    &lt;abstract&gt;
+      &lt;para&gt;
+        This is part of the abstract.
+      &lt;/para&gt;
+    &lt;/abstract&gt;
+  &lt;/info&gt;
+  
+  &lt;section xml:id="sec.chap1"&gt;&amp;chap1;&lt;/section&gt;
+  &amp;references;
+&lt;/article&gt;</template><template autoinsert="true" context="xml_new" deleted="false" description="Begin a new section of a DocBook article" enabled="true" name="DocBook Section">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;info&gt;
+  &lt;title&gt;${cursor}&lt;/title&gt;
+&lt;/info&gt;
+&lt;para&gt;
+Put content here.
+&lt;/para&gt;</template></templates>

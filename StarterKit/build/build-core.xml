@@ -24,11 +24,7 @@
   <filelist id="docbook.src" dir="${dir.src}">
     <file name="DocBookMaster.xml" />
     <file name="Introduction.xml" />
-  	<file name="GettingFiles.xml" />
-  	<file name="InstallingFiles.xml" />
-  	<file name="InstallingMacFiles.xml" />
-  	<file name="ConfigureEclipse.xml" />
-    <file name="references.xml" />
+    <file name="References.xml" />
   </filelist>
 
 </project>

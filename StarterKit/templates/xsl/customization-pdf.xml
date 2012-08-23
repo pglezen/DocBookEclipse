@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="true" context="xsl_new" deleted="false" description="Add a DocBook Customization Layer" enabled="true" name="DocBook Customization">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+   xmlns:d="http://docbook.org/ns/docbook"&gt;
+   
+   &lt;!-- This sample overrides the FO/PDF output.  Be sure
+        to import the one you really want
+     --&gt;
+   &lt;xsl:import href="../softlinks/docbook/fo/docbook.xsl"/&gt;
+   
+   &lt;xsl:param name="shade.verbatim" select="1" /&gt;
+   &lt;xsl:attribute-set name="monospace.verbatim.properties"&gt;
+      &lt;xsl:attribute name="font-size"&gt;9pt&lt;/xsl:attribute&gt;
+      &lt;xsl:attribute name="wrap-option"&gt;wrap&lt;/xsl:attribute&gt;
+   &lt;/xsl:attribute-set&gt;
+&lt;/xsl:stylesheet&gt;</template></templates>
