@@ -10,8 +10,8 @@ DocBook with an Eclipse environment.  My preliminary outline is
 5. DocBook Starter Kit
 6. Tips and Tricks
 
-I plan to add customization layers for
+I also plan to add a "Starter Kit" with templates and samples for
 
-* FO/PDF
-* XHTML5
-* EPUB3
+* Customization Layers
+* Build Scripts
+* XML/XSL Eclipse code templates
