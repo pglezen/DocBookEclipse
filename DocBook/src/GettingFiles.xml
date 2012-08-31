@@ -39,7 +39,7 @@ from DocBook and produces a PDF file.
   <title>Generating PDF from DocBook</title>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="images/docbook2pdf.svg"/>
+      <imagedata fileref="images/docbook2pdf.jpg"/>
     </imageobject>
     <textobject><phrase>Generating PDF from DocBook source</phrase></textobject>
   </mediaobject>
