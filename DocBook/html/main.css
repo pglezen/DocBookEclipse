@@ -1,0 +1,25 @@
+.emphasis {
+	font-weight: bold;
+}
+.guilabel {
+	font-weight: bold;
+}
+.guibutton {
+	font-weight: bold;
+}
+.guimenu {
+	font-weight: bold;
+}
+.guimenuitem {
+	font-weight: bold;
+}
+.abstract {
+   border: solid blue;
+   padding: 5px;
+}
+.abstract p {
+   font-style: italic;
+}
+.abstract p.title {
+   font-style: normal;
+}

@@ -10,3 +10,29 @@ such as MS-Office, OpenOffice or LibreOffice, stop now.  DocBook is not a
 WYSIWYG product.  It has a considerable learning curve and should only be
 used by propeller-heads.
 </para>
+<para>
+But perhaps you're already interested in DocBook but are wondering why use
+Eclipse to produce DocBook documents.  I found Eclipse helpful for DocBook
+usage for the following reasons.
+</para>
+<itemizedlist>
+<listitem>
+  <para>
+  Eclipse has built-in support for stylesheet transformations.  You have to
+  make sure you download the right edition (the J2EE edition is a safe bet).
+  </para>
+</listitem>
+<listitem>
+  <para>
+  Eclipse has support for developing and running Ant scripts.  You can get
+  by without script support for your first few toy documents.  But as you
+  learn about the various parameters supported by the output configuration,
+  provding the parameters via a command line becomes unwieldy.
+  </para>
+</listitem>
+<listitem>
+  <para>
+  Eclipse has spell checking support within its XML editors.
+  </para>
+</listitem>
+</itemizedlist>

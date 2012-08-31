@@ -28,6 +28,7 @@
   	<file name="InstallingFiles.xml" />
   	<file name="InstallingMacFiles.xml" />
   	<file name="ConfigureEclipse.xml" />
+  	<file name="NewProject.xml"/>
     <file name="references.xml" />
   </filelist>
 

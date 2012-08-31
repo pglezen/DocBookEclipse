@@ -1,92 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <info>
-  <title>Configuring a New DocBook Project</title>
+  <title>New Eclipse Workspace</title>
 </info>
 <para>
-We need to configure our DocBook project dependencies independent
-of where we install them on our file system.
-Since we expect to source control our
-DocBook source and build-scripts, we need to organize our Eclipse
-workspace so that file system and OS dependencies don't creep into
-source controlled artifacts.
+To configure a new Eclipse workspace for DocBook projects, install
+the XML/XSL templates from the Starter Kit to quicken the creation
+of new source files.  These are located in the
+<filename class="directory">templates</filename>
+folder of the Starter Kit.
 </para>
 <procedure>
+
 <step>
   <para>
-  Create a new project to hold the DocBook source.
-  The type can be a simple project.
+  Import the DocBook Starter Kit as a plain Eclipse project or
+  simply have the files somewhere handy.
   </para>
 </step>
+
 <step>
   <para>
-  Make the DocBook and FOP installations
-  <emphasis>appear</emphasis> to reside in our project under
-  a directory named
-  <filename class="directory">softlinks</filename>.  
-  Whether a copy needs to reside here depends on the OS platform.  
-  Linux and  OS X support directory soft links.  Windows does not.
-  The Eclipse platform itself supports links for files, but not 
-  directories.
+  Open 
+  <menuchoice>
+    <guimenu>Windows</guimenu>
+    <guimenuitem>Preferences</guimenuitem>
+  </menuchoice>
+  of your Eclipse workspace.
+  As shown in <xref linkend="fig.editorTemplates"/>, there are
+  two templates to import.
   </para>
-  <para>
-  Linux and OS X users can use the following technique.
-  <substeps>
-    <step>
-      <para>
-        Open a terminal to the
-        <filename class="directory">softlinks</filename>
-        directory.
-      </para>
-    </step>
-    <step>
-      <para>
-      Run the following command.
-         <cmdsynopsis>
-            <command>ln -s</command>
-            <arg choice="req"><replaceable>path to DocBook installation</replaceable></arg>
-            <arg choice="plain">docbook</arg>
-         </cmdsynopsis>
-      </para>
-    </step>
-    <step>
-      <para>
-      Run a similar command for the FOP folder.
-         <cmdsynopsis>
-            <command>ln -s</command>
-            <arg choice="req"><replaceable>path to FOP installation</replaceable></arg>
-            <arg choice="plain">fop</arg>
-         </cmdsynopsis>
-      </para>
-    </step>
-  </substeps>
-  </para>
-  <para>
-  Windows users must actually copy these folders into their Eclipse
-  workspace under the <filename class="directory">softlinks</filename>
-  directory.  This is not a very attractive solution.  I wasn't able
-  to make the any of the following work in its place.
-  </para>
-  <itemizedlist>
-    <listitem>
-      <emphasis>Windows Shortcuts</emphasis> - On a Windows desktop
-        or file explorer, a Windows shortcut looks like the real thing.  But it's
-        actually a file with an .inf extension.  In the Eclipse workspace, we
-        get <filename class="directory">docbook.inf</filename> and
-        <filename class="direcotry">fop.inf</filename>.
-    </listitem>
-    <listitem>
-      <emphasis>Eclipse Links</emphasis> - Eclipse provides a linking
-        mechanism to refer to files and directories outside the workspace.
-        Unfortunately, this linking information is stored in the
-        <filename>.project</filename> metadata file that Eclipse uses
-        for a project, not in workspace metadata.  Thus it would also
-        become source controlled and then imposed on others.
-    </listitem>
-  </itemizedlist>
 </step>
+
 <step>
   <para>
-  Import the DocBook Starter Kit.
+  First choose
+  <menuchoice>
+    <guimenu>XML</guimenu>
+    <guimenuitem>XML Files</guimenuitem>
+    <guimenuitem>Editor</guimenuitem>
+    <guimenuitem>Templates</guimenuitem>
+  </menuchoice>
+  and import
+  <filename>templates/xml/docbook-new.xml</filename>
+  from the Starter Kit.  This will create two new creation templates
+  for XML files named <emphasis>DocBook Master</emphasis> and
+  <emphasis>DocBook Section</emphasis> as shown in
+  <xref linkend="fig.editorTemplates"/>.
   </para>
+</step>
+
+<step>
+  <para>
+  Then choose 
+  <menuchoice>
+    <guimenu>XML</guimenu>
+    <guimenuitem>XSL</guimenuitem>
+    <guimenuitem>Templates</guimenuitem>
+  </menuchoice>
+  and import
+  <filename>templates/xsl/customization-pdf.xml</filename>
+  from the Starter Kit.  This will create a single creation template
+  for XSL files named <emphasis>DocBook Customization</emphasis>.
+  </para>
+<figure xml:id="fig.editorTemplates">
+  <title>Importing XML/XSL Editor Templates</title>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/EclipseDocBookEditorTemplates.jpg"/>
+    </imageobject>
+    <textobject><phrase>Importing Eclipse Editor Templates</phrase></textobject>
+  </mediaobject>
+</figure>
+</step>
+
+<step>
+  <para>
+  To use Xalan for XSL processing run configurations, navigate to
+  <menuchoice>
+    <guimenu>XML</guimenu>
+    <guimenuitem>XSL</guimenuitem>
+    <guimenuitem>Java Processors</guimenuitem>
+  </menuchoice>
+  as shown in
+  <xref linkend="fig.chooseXalan"/>
+  and choose Xalan from the list.
+  </para>
+  <para>
+  This is only meaningful if you intend to execute the DocBook stylesheets
+  directly from an Eclipse run configuration.  If you invoke the stylesheets
+  from an Ant script as described in the next section, the Xalan processor
+  is specified in the Ant script.
+  </para>  
+<figure xml:id="fig.chooseXalan">
+  <title>Choose Xalan for XSL Processing</title>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/chooseXalan.jpg"/>
+    </imageobject>
+    <textobject><phrase>Choose Xalan for XSL Processing</phrase></textobject>
+  </mediaobject>
+</figure>
 </step>
 </procedure>

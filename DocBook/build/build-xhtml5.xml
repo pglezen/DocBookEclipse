@@ -16,10 +16,10 @@
   </target>
 
   <!-- ================================================================
-       Create single HTML page.
+       Create single XHTML5 page.
        ================================================================
     -->
-  <target name="html" depends="init" description="Create HTML Format.">
+  <target name="html" depends="init" description="Create XHTML5 Format.">
     <property name="out.dir" location="out/xhtml5" />
     <property name="out.file" value="DocBookEclipse.html" />
     <property name="out.zip"  value="DocBookEclipseXHtml5.zip" />
@@ -55,7 +55,7 @@
     </zip>
   </target>
 
-  <target name="clean.html" description="Clean up HTML directory.">
+  <target name="clean.html" description="Clean up XHTML5 directory.">
     <delete dir="out/html" failonerror="false" />
     <delete file="out/${out.zip}" failonerror="false" />
   </target>
