@@ -107,7 +107,7 @@ with soft links and build links.
       of the output types.
     </listitem>
     <listitem>
-      <filename class="directory">src</filename> - stores the content of your documents.
+      <filename class="directory">src</filename> - the source for your document content.
     </listitem>
   </itemizedlist>
   </para>
@@ -126,3 +126,6 @@ with soft links and build links.
   </para>
 </step>
 </procedure>
+<para>
+  Your ready to start writing your DocBook source!
+</para>
