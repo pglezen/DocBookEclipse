@@ -15,7 +15,7 @@
       </personname>
     </author>.
     Online: 
-    <link xlink:href="docbook.org/tdg51/en/html/"/>
+    <link xlink:href="http://docbook.org/tdg51/en/html/"/>
   </bibliomixed>
   
   <bibliomixed xml:id="ref.CompleteGuide" >
@@ -29,7 +29,7 @@
       </personname>
     </author>.
     Online: 
-    <link xlink:href="www.sagehill.net/docbookxsl/index.html"/>
+    <link xlink:href="http://www.sagehill.net/docbookxsl/index.html"/>
   </bibliomixed>
 
 </bibliolist>

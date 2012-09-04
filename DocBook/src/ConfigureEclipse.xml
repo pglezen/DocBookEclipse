@@ -65,8 +65,9 @@ folder of the Starter Kit.
 <figure xml:id="fig.editorTemplates">
   <title>Importing XML/XSL Editor Templates</title>
   <mediaobject>
-    <imageobject>
-      <imagedata fileref="images/EclipseDocBookEditorTemplates.jpg"/>
+    <imageobject condition="print">
+      <imagedata fileref="images/EclipseDocBookEditorTemplates.png"
+                 contentwidth="6in" format="PNG"/>
     </imageobject>
     <textobject><phrase>Importing Eclipse Editor Templates</phrase></textobject>
   </mediaobject>
@@ -95,7 +96,8 @@ folder of the Starter Kit.
   <title>Choose Xalan for XSL Processing</title>
   <mediaobject>
     <imageobject>
-      <imagedata fileref="images/chooseXalan.jpg"/>
+      <imagedata fileref="images/chooseXalan.png"
+                 contentwidth="6in" format="PNG"/>
     </imageobject>
     <textobject><phrase>Choose Xalan for XSL Processing</phrase></textobject>
   </mediaobject>
