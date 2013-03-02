@@ -114,7 +114,8 @@ with soft links and build links.
 </step>
 <step>
   <para>
-  In most cases, you will want to create a directory for each output type.
+  In most cases, you will want to create a subdirectory of
+  <filename class="directory">out</filename> for each output type.
   These directories contain files that control the presentation of your documents.
   (The <filename class="directory">src</filename> directory determines the content).
   If you generate PDF output, a 
