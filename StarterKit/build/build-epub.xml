@@ -29,19 +29,19 @@
       <fileset dir="${dir.images}" />
     </copy>
 
-    <copy todir="${out.dir}/OEBPS" file="${dir.epub}/esrc.css" />
+    <copy todir="${out.dir}/OEBPS" file="${dir.epub}/main.css" />
     <copy todir="${out.dir}"       file="${dir.epub}/mimetype" />
 
     <dependset verbose="true">
       <srcfilelist refid="docbook.src" />
       <srcfilelist dir="build" files="build-core.xml build-epub.xml"/>
-      <srcfilelist dir="${dir.epub}" files="esrc.css" />
+      <srcfilelist dir="${dir.epub}" files="main.css" />
       <targetfilelist dir="${basedir}/out" files="${out.file}"/>
     </dependset>
 
     <xslt in="${dir.src}/MyProjectMaster.xml" out="${out.dir}/${dummy.file}" style="${xslt.epub}">
       <factory name="org.apache.xalan.processor.TransformerFactoryImpl" />
-      <param name="html.stylesheet"            expression="esrc.css" />
+      <param name="html.stylesheet"            expression="main.css" />
       <param name="xref.with.number.and.title" expression="0" />
       <param name="section.autolabel"          expression="1" />
       <param name="use.extensions"             expression="1" />
