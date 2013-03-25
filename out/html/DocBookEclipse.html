@@ -1,0 +1,250 @@
+<html><head><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>DocBook with Eclipse</title><link href="main.css" type="text/css" rel="stylesheet"><meta content="DocBook XSL Stylesheets V1.77.1" name="generator"><meta name="description" content="This document explains how to quickly start working with DocBook using your Eclipse Web Tools Platform (WTP) environment. WTP is required only for the XSLT features it provides. This article covers Mac, Linux, and Windows."></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="article"><div class="titlepage"><div><div><h1 class="title"><a name="N10001"></a>DocBook with Eclipse</h1></div><div><div class="author"><h3 class="author"><span class="firstname">Paul</span> <span class="surname">Glezen</span></h3><div class="affiliation"><span class="jobtitle">IT Specialist<br></span><span class="orgname">IBM<br></span> <span class="orgdiv">Software Services for WebSphere<br></span></div></div></div><div><div class="abstract"><p class="title"><b>Abstract</b></p><p>
+        This document explains how to quickly start working with
+        DocBook using your Eclipse Web Tools Platform (WTP)
+        environment.  WTP is required only for the XSLT features
+        it provides.  This article covers Mac, Linux, and Windows.
+      </p></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#sec.intro">1. Introduction</a></span></dt><dt><span class="section"><a href="#sec.GettingFiles">2. Getting Files</a></span></dt><dd><dl><dt><span class="section"><a href="#N10037">2.1. DocBook Stylesheets</a></span></dt><dt><span class="section"><a href="#N10044">2.2. Formatting Objects (FO)</a></span></dt><dt><span class="section"><a href="#N10064">2.3. OFFO Hyphenation</a></span></dt></dl></dd><dt><span class="section"><a href="#sec.InstallFiles">3. Installing DocBook Files</a></span></dt><dd><dl><dt><span class="section"><a href="#N1007D">3.1. Mac OS X</a></span></dt></dl></dd><dt><span class="section"><a href="#sec.ConfigEclipse">4. New Eclipse Workspace</a></span></dt><dt><span class="section"><a href="#sec.NewProject">5. Configuring a New DocBook Project</a></span></dt><dt><span class="section"><a href="#sec.References">6. References</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sec.intro"></a>1.&nbsp;Introduction</h2></div></div></div><p>
+For this version of the article, I'm going to assume you have some reason to
+learn DocBook rather than try to provide a motivation.  But just in case you
+stumbled on this document expecting an office suite replacement for products
+such as MS-Office, OpenOffice or LibreOffice, stop now.  DocBook is not a
+WYSIWYG product.  It has a considerable learning curve and should only be
+used by propeller-heads.
+</p><p>
+But perhaps you're already interested in DocBook but are wondering why use
+Eclipse to produce DocBook documents.  I found Eclipse helpful for DocBook
+usage for the following reasons.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><p>
+  Eclipse has built-in support for stylesheet transformations.  You have to
+  make sure you download the right edition (the J2EE edition is a safe bet).
+  </p></li><li class="listitem"><p>
+  Eclipse has support for developing and running Ant scripts.  You can get
+  by without script support for your first few toy documents.  But as you
+  learn about the various parameters supported by the output configuration,
+  provding the parameters via a command line becomes unwieldy.
+  </p></li><li class="listitem"><p>
+  Eclipse has spell checking support within its XML editors.
+  </p></li></ul></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sec.GettingFiles"></a>2.&nbsp;Getting Files</h2></div></div></div><p>
+DocBook is basically a set of stylesheets that convert our content-centric
+XML source files into a desired format.  So acquiring DocBook amounts to
+acquiring these stylesheets.  
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="N10037"></a>2.1.&nbsp;DocBook Stylesheets</h3></div></div></div><p>
+The DocBook stylesheets themselves are located at the following link.
+</p><p>
+<a class="link" href="http://sourceforge.net/projects/docbook/files/docbook-xsl-ns/" target="_top">http://sourceforge.net/projects/docbook/files/docbook-xsl-ns/</a>
+</p><p>
+Download the latest version in an archive format suitable for your OS.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="N10044"></a>2.2.&nbsp;Formatting Objects (FO)</h3></div></div></div><p>
+If you want to generate PDF files, then there are a few more downloads.  DocBook
+doesn't generate PDF files directly.  Rather, it generates an XML document
+structured as <em class="firstterm">Formatting Objects</em>, or FO.  A separate
+processor developed by an Apache project called
+<em class="firstterm">Formatting Object Processor</em> (FOP) takes the FO output
+from DocBook and produces a PDF file.
+</p><div class="figure"><a name="fig.docbook2pdf"></a><p class="title"><b>Figure&nbsp;1.&nbsp;Generating PDF from DocBook</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/docbook2pdf.jpg" alt="Generating PDF from DocBook source"></div></div></div><br class="figure-break"><p>
+FOP may be downloaded from the Apache FOP project.
+</p><p>
+<a class="link" href="http://xmlgraphics.apache.org/fop/download.html" target="_top">http://xmlgraphics.apache.org/fop/download.html</a>
+</p><p>
+Choose the binary download.  You'll be asked to choose a mirror.  On the
+mirror site, choose the binaries folder and download the latest stable
+distribution in the archive format supported by your OS.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="N10064"></a>2.3.&nbsp;OFFO Hyphenation</h3></div></div></div><p>
+FOP uses a hyphenation toolkit that is part of the OFFO project.  The binary
+is downloaded from SourceForge.
+</p><p>
+<a class="link" href="http://sourceforge.net/projects/offo/" target="_top">http://sourceforge.net/projects/offo/</a>
+</p><p>
+Download the file <code class="filename">offo-hyphenation-binary_v2.0.zip</code>.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sec.InstallFiles"></a>3.&nbsp;Installing DocBook Files</h2></div></div></div><p>
+Installing DocBook files pretty much amounts to unarchiving them.  But
+it pays to plan things up front to ease the upgrade process when new
+versions of the stylesheets are released.  The schemes described in
+this article differ slightly by OS.
+</p><p>
+Where you place files is somewhat arbitrary.  This section is simply
+where I place them.  Feel free to override these guidelines with any
+preference you may have.
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="N1007D"></a>3.1.&nbsp;Mac OS X</h3></div></div></div><p>
+I configure the DocBook related stylesheets in
+<code class="filename">/usr/local/share</code>.  One must
+have admin rights to set up here.  If you don't have admin
+privileges, you may follow these steps substituting a location
+under your user directory.
+</p><div class="procedure"><ol class="procedure" type="1"><li class="step"><p>
+   Expand the DocBook stylesheets into 
+   <code class="filename">/usr/local/share</code>.
+   The name of the directory created by expanding the archive should
+   contain the version number of the stylesheets.
+   </p></li><li class="step"><p>
+  Create a soft link named 
+  <code class="filename">docbook</code> 
+  that points to the directory just
+  created by expanding the archive.
+  </p><div class="cmdsynopsis"><p><code class="command">ln -s docbook-xml-ns-1.77.1 docbook</code> </p></div><p>
+  Afterward, your directory should look similar to this.
+  </p><pre class="screen">
+  /usr/local/share$ ls -l
+  total 8
+  lrwxr-xr-x   1 root  wheel    21 Jun  6 21:18 docbook@ -&gt; docbook-xsl-ns-1.77.1
+  drwxr-xr-x@ 46 root  wheel  1564 Jun  6 21:17 docbook-xsl-ns-1.76.1/
+  drwxr-xr-x@ 51 root  wheel  1734 Jun  4 15:09 docbook-xsl-ns-1.77.1/
+  drwxr-xr-x   7 root  wheel   238 Jun  7 18:22 java/
+  /usr/local/share$ 
+  </pre></li><li class="step"><p>
+  Expand the FOP and OFFO archives into the
+  <code class="filename">/usr/local/share/java</code>
+  directory.  For the FOP directory, create a soft link as was
+  done in the previous step.  This is not necessary for the
+  OFFO distribution since we are simply poaching its library,
+  not referencing it.  The
+  <code class="filename">/usr/local/share/java</code>
+  directory should look similar to this.
+  </p><pre class="screen">
+/usr/local/share/java$ ls -l
+total 16
+lrwxr-xr-x   1 root  wheel    7 Jun  7 18:22 fop@ -&gt; fop-1.0
+drwxr-xr-x@ 17 root  wheel  578 May 10 22:04 fop-1.0/
+drwxrwxr-x  10 root  wheel  340 Oct 29  2010 offo-hyphenation-binary/
+lrwxr-xr-x   1 root  wheel   13 Jun  6 20:10 xalan@ -&gt; xalan-j_2_7_1
+drwxr-xr-x@ 12 root  wheel  408 Jun  6 19:29 xalan-j_2_7_1/
+/usr/local/share/java$ 
+  </pre><p>
+  </p></li><li class="step"><p>
+  Copy <code class="filename">fop-hyph.jar</code> from the OFFO installation
+  to the <code class="filename">fop/lib</code> directory.
+  (Or you can simply hard link to it.) 
+  </p></li></ol></div><p>
+This completes the file system set-up for Mac OS X.
+</p></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sec.ConfigEclipse"></a>4.&nbsp;New Eclipse Workspace</h2></div></div></div><p>
+To configure a new Eclipse workspace for DocBook projects, install
+the XML/XSL templates from the Starter Kit to quicken the creation
+of new source files.  These are located in the
+<code class="filename">templates</code>
+folder of the Starter Kit.
+</p><div class="procedure"><ol class="procedure" type="1"><li class="step"><p>
+  Import the DocBook Starter Kit as a plain Eclipse project or
+  simply have the files somewhere handy.
+  </p></li><li class="step"><p>
+  Open 
+  <span class="guimenu">Windows</span> &rarr; <span class="guimenuitem">Preferences</span>
+  of your Eclipse workspace.
+  As shown in <a class="xref" href="#fig.editorTemplates" title="Figure&nbsp;2.&nbsp;Importing XML/XSL Editor Templates">Figure&nbsp;2</a>, there are
+  two templates to import.
+  </p></li><li class="step"><p>
+  First choose
+  <span class="guimenu">XML</span> &rarr; <span class="guimenuitem">XML Files</span> &rarr; <span class="guimenuitem">Editor</span> &rarr; <span class="guimenuitem">Templates</span>
+  and import
+  <code class="filename">templates/xml/docbook-new.xml</code>
+  from the Starter Kit.  This will create two new creation templates
+  for XML files named <span class="emphasis"><em>DocBook Master</em></span> and
+  <span class="emphasis"><em>DocBook Section</em></span> as shown in
+  <a class="xref" href="#fig.editorTemplates" title="Figure&nbsp;2.&nbsp;Importing XML/XSL Editor Templates">Figure&nbsp;2</a>.
+  </p></li><li class="step"><p>
+  Then choose 
+  <span class="guimenu">XML</span> &rarr; <span class="guimenuitem">XSL</span> &rarr; <span class="guimenuitem">Templates</span>
+  and import
+  <code class="filename">templates/xsl/customization-pdf.xml</code>
+  from the Starter Kit.  This will create a single creation template
+  for XSL files named <span class="emphasis"><em>DocBook Customization</em></span>.
+  </p><div class="figure"><a name="fig.editorTemplates"></a><p class="title"><b>Figure&nbsp;2.&nbsp;Importing XML/XSL Editor Templates</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/EclipseDocBookEditorTemplates.png" width="540" alt="Importing Eclipse Editor Templates"></div></div></div><br class="figure-break"></li><li class="step"><p>
+  To use Xalan for XSL processing run configurations, navigate to
+  <span class="guimenu">XML</span> &rarr; <span class="guimenuitem">XSL</span> &rarr; <span class="guimenuitem">Java Processors</span>
+  as shown in
+  <a class="xref" href="#fig.chooseXalan" title="Figure&nbsp;3.&nbsp;Choose Xalan for XSL Processing">Figure&nbsp;3</a>
+  and choose Xalan from the list.
+  </p><p>
+  This is only meaningful if you intend to execute the DocBook stylesheets
+  directly from an Eclipse run configuration.  If you invoke the stylesheets
+  from an Ant script as described in the next section, the Xalan processor
+  is specified in the Ant script.
+  </p><div class="figure"><a name="fig.chooseXalan"></a><p class="title"><b>Figure&nbsp;3.&nbsp;Choose Xalan for XSL Processing</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/chooseXalan.png" width="540" alt="Choose Xalan for XSL Processing"></div></div></div><br class="figure-break"></li></ol></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sec.NewProject"></a>5.&nbsp;Configuring a New DocBook Project</h2></div></div></div><p>
+We need to configure our DocBook project dependencies independent
+of where we install them on our file system.
+Since we usually expect to source-control our
+DocBook source and build-scripts, we need to organize our Eclipse
+workspace so that file system and OS dependencies don't creep into
+source-controlled artifacts.  This is accomplished on most platforms
+with soft links and build links.
+</p><div class="procedure"><ol class="procedure" type="1"><li class="step"><p>
+  Create a new project to hold the DocBook source.
+  The type can be a simple project.
+  </p></li><li class="step"><p>
+  Make the DocBook and FOP installations
+  <span class="emphasis"><em>appear</em></span> to reside in our project under
+  a directory named
+  <code class="filename">softlinks</code>.  
+  Whether copies of those directories need to reside there depends 
+  on the OS platform.  
+  Linux and  OS X support directory soft links.  Windows does not.
+  The Eclipse platform itself supports links for files, but not 
+  directories.
+  </p><p>
+  Linux and OS X users can use the following technique.
+  </p><ol type="a" class="substeps"><li class="step"><p>
+        Open a terminal to the
+        <code class="filename">softlinks</code>
+        directory.
+      </p></li><li class="step"><p>
+      Run the following command.
+         </p><div class="cmdsynopsis"><p><code class="command">ln -s</code>  {<em class="replaceable"><code>path to DocBook installation</code></em>}  docbook </p></div><p>
+      </p></li><li class="step"><p>
+      Run a similar command for the FOP folder.
+         </p><div class="cmdsynopsis"><p><code class="command">ln -s</code>  {<em class="replaceable"><code>path to FOP installation</code></em>}  fop </p></div><p>
+      </p></li></ol><p>
+  </p><p>
+  Windows users must actually copy these folders into their Eclipse
+  workspace under the <code class="filename">softlinks</code>
+  directory.  This is not a very attractive solution.  I wasn't able
+  to make the any of the following work in its place.
+  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><span class="emphasis"><em>Windows Shortcuts</em></span> - On a Windows desktop
+        or file explorer, a Windows shortcut looks like the real thing.  But it's
+        actually a file with an .inf extension.  In the Eclipse workspace, we
+        get <code class="filename">docbook.inf</code> and
+        <code class="filename">fop.inf</code>.
+    </li><li class="listitem"><span class="emphasis"><em>Eclipse Links</em></span> - Eclipse provides a linking
+        mechanism to refer to files and directories outside the workspace.
+        Unfortunately, this linking information is stored in the
+        <code class="filename">.project</code> metadata file that Eclipse uses
+        for a project, not in workspace metadata.  Thus it would also
+        become source controlled and then imposed on others.
+    </li></ul></div></li><li class="step"><p>
+  Copy the build folder of the Starter Kit into your new project.  This
+  includes a <code class="filename">build-core.xml</code> that defines source
+  dependencies and sets a few global properties.  The other files
+  reference <code class="filename">build-core.xml</code> and generate specific
+  output formats.
+  </p></li><li class="step"><p>
+  Create the following folders in your new project.
+  </p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem"><code class="filename">images</code> - used for storing image files.
+    </li><li class="listitem"><code class="filename">out</code> - stores generated output for each
+      of the output types.
+    </li><li class="listitem"><code class="filename">src</code> - the source for your document content.
+    </li></ul></div><p>
+  </p></li><li class="step"><p>
+  In most cases, you will want to create a subdirectory of
+  <code class="filename">out</code> for each output type.
+  These directories contain files that control the presentation of your documents.
+  (The <code class="filename">src</code> directory determines the content).
+  If you generate PDF output, a 
+  <code class="filename">pdf</code> folder would
+  contain the customization layer.  If you generate HTML or EPUB output, the
+  <code class="filename">html</code> or 
+  <code class="filename">epub</code> folder would contain the your
+  CSS files.
+  </p></li></ol></div><p>
+  You're ready to start writing your DocBook source!
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sec.References"></a>6.&nbsp;References</h2></div></div></div><div class="bibliolist"><div class="bibliomixed"><a name="ref.DefinitiveGuide"></a><p class="bibliomixed">[1] 
+    <span class="title">DocBook: The Definitive Guide</span>,
+    <span class="date">April, 2012</span>.
+    <span class="author"><span class="firstname">Norman</span> <span class="surname">Walsh</span></span>.
+    Online: 
+    <a class="link" href="http://docbook.org/tdg51/en/html/" target="_top">http://docbook.org/tdg51/en/html/</a>
+  </p></div><div class="bibliomixed"><a name="ref.CompleteGuide"></a><p class="bibliomixed">[2] 
+    <span class="title">DocBook XSL: The Complete Guide</span>,
+    <span class="edition">Fourth Edition</span>,
+    <span class="date">September, 2007</span>. 
+    <span class="author"><span class="firstname">Bob</span> <span class="surname">Stayton</span></span>.
+    Online: 
+    <a class="link" href="http://www.sagehill.net/docbookxsl/index.html" target="_top">http://www.sagehill.net/docbookxsl/index.html</a>
+  </p></div></div></div></div></body></html>
