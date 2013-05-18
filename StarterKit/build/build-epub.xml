@@ -39,7 +39,7 @@
       <targetfilelist dir="${basedir}/out" files="${out.file}"/>
     </dependset>
 
-    <xslt in="${dir.src}/MyProjectMaster.xml" out="${out.dir}/${dummy.file}" style="${xslt.epub}">
+    <xslt in="${dir.src}/${master.file}" out="${out.dir}/${dummy.file}" style="${xslt.epub}">
       <factory name="org.apache.xalan.processor.TransformerFactoryImpl" />
       <param name="html.stylesheet"            expression="main.css" />
       <param name="xref.with.number.and.title" expression="0" />
@@ -48,7 +48,7 @@
       <param name="callouts.extension"         expression="1" />
       <param name="bibliography.numbered"      expression="1" />
       <param name="base.dir"                   expression="${out.dir}/OEBPS/"/>
-      <param name="epub.oebps.dir"             expression="${out.dir}/OEBPS/"/>
+      <param name="epub.oebps.dir"             expression="OEBPS/"/>
       <param name="epub.metainf.dir"           expression="${out.dir}/META-INF/"/>
     </xslt>
     

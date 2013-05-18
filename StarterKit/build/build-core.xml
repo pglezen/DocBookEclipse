@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="DocBook-Core" basedir="..">
+<project name="MyProject-Core" basedir="..">
 
   <description>
    An Ant script for building the DocBook with Eclipse.
@@ -8,6 +8,9 @@
   <property name="dir.src"     location="src" />
   <property name="dir.images"  location="images" />  
   <property name="dir.docbook" location="softlinks/docbook" />
+  <property name="master.root" value="MyProject"/>
+  <property name="master.file" value="${master.root}-master.xml"/>
+
 
   <target name="init">
     <tstamp>
@@ -19,10 +22,11 @@
     <echo>DocBook Install = ${dir.docbook}</echo>
     <echo>Base Directory  = ${basedir}</echo>
     <echo>Image Directory = ${dir.images}</echo>
+  	<echo>Document Master = ${master.file}</echo>
   </target>
 
   <filelist id="docbook.src" dir="${dir.src}">
-    <file name="DocBookMaster.xml" />
+    <file name="${master.file}" />
     <file name="Introduction.xml" />
     <file name="References.xml" />
   </filelist>
