@@ -20,10 +20,15 @@ with soft links and build links.
 </step>
 <step>
   <para>
+  Create a directory named
+  <filename class="directory">softlinks</filename>.
+  </para>
+</step>
+<step>
+  <para>
   Make the DocBook and FOP installations
   <emphasis>appear</emphasis> to reside in our project under
-  a directory named
-  <filename class="directory">softlinks</filename>.  
+  <filename class="directory">softlinks</filename> directory.  
   Whether copies of those directories need to reside there depends 
   on the OS platform.  
   Linux and  OS X support directory soft links.  Windows does not.
@@ -88,7 +93,8 @@ with soft links and build links.
 </step>
 <step>
   <para>
-  Copy the build folder of the Starter Kit into your new project.  This
+  Copy the <filename class="directory">build</filename> 
+  folder of the Starter Kit into your new project.  This
   includes a <filename>build-core.xml</filename> that defines source
   dependencies and sets a few global properties.  The other files
   reference <filename>build-core.xml</filename> and generate specific
