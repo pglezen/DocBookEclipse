@@ -170,10 +170,12 @@ with soft links and build links.
   Create a new project to hold the DocBook source.
   The type can be a simple project.
   </p></li><li class="step"><p>
+  Create a directory named
+  <code class="filename">softlinks</code>.
+  </p></li><li class="step"><p>
   Make the DocBook and FOP installations
   <span class="emphasis"><em>appear</em></span> to reside in our project under
-  a directory named
-  <code class="filename">softlinks</code>.  
+  <code class="filename">softlinks</code> directory.  
   Whether copies of those directories need to reside there depends 
   on the OS platform.  
   Linux and  OS X support directory soft links.  Windows does not.
@@ -209,7 +211,8 @@ with soft links and build links.
         for a project, not in workspace metadata.  Thus it would also
         become source controlled and then imposed on others.
     </li></ul></div></li><li class="step"><p>
-  Copy the build folder of the Starter Kit into your new project.  This
+  Copy the <code class="filename">build</code> 
+  folder of the Starter Kit into your new project.  This
   includes a <code class="filename">build-core.xml</code> that defines source
   dependencies and sets a few global properties.  The other files
   reference <code class="filename">build-core.xml</code> and generate specific
