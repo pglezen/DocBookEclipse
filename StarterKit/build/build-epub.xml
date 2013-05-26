@@ -3,7 +3,6 @@
 
   <description>
    An Ant script for building DocBook with Eclipse as an ePub.
-   Replace "MyProject" with your project name.
    </description>
   
   <include file="build-core.xml" as="core"/>
@@ -22,7 +21,7 @@
     -->
   <target name="epub" depends="init" description="Create EPUB artifacts.">
     <property name="out.dir" location="out/epub" />
-    <property name="out.file" value="MyProject.epub" />
+    <property name="out.file" value="${master.root}.epub" />
     <property name="dummy.file" value="DummyFile.xml" />
 
     <copy todir="${out.dir}/OEBPS/images" failonerror="true">
@@ -56,7 +55,7 @@
   </target>
 
   <target name="zip.epub" description="Create EPUB archive.">
-    <zip destfile="${basedir}/out/MyProject.epub" basedir="${out.dir}"/>
+    <zip destfile="${basedir}/out/${master.root}.epub" basedir="${out.dir}"/>
   </target>
 
   <target name="clean.epub" description="Clean up EPUB directory.">
