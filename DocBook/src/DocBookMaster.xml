@@ -6,6 +6,7 @@
   <!ENTITY MacFiles      SYSTEM "InstallingMacFiles.xml">
   <!ENTITY ConfigEclipse SYSTEM "ConfigureEclipse.xml">
   <!ENTITY NewProject    SYSTEM "NewProject.xml">
+  <!ENTITY RunConfig     SYSTEM "RunConfig.xml">
   <!ENTITY References    SYSTEM "references.xml">
 ]>
 <article xmlns="http://docbook.org/ns/docbook"
@@ -42,5 +43,6 @@
   </section>
   <section xml:id="sec.ConfigEclipse">&ConfigEclipse;</section>
   <section xml:id="sec.NewProject">&NewProject;</section>
+  <section xml:id="sec.RunConfig">&RunConfig;</section>
   <section xml:id="sec.References">&References;</section>
 </article>

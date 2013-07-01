@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<info>
+  <title>External Tools Configuration</title>
+</info>
+<para>
+Eclipse uses an 
+<firstterm>external tools configuration</firstterm> to execute
+external tools.  One of the most common external tool is the
+Ant build script.  Several Ant scripts are included in the 
+Starter Kit.  The most convenient way to execute these scripts
+is to execute them from a external tool configuration that
+stores its parameters and dependencies in a single place and
+is invoked at the click of a button. 
+</para>
+<para>
+The external tools configuration dialog is invoked from
+  <menuchoice>
+    <guimenu>Run</guimenu>
+    <guimenuitem>External Tools</guimenuitem>
+    <guimenuitem>External Tools Configurations</guimenuitem>
+  </menuchoice>.
+Right-click on <guilabel>Ant Build</guilabel> and select 
+<guimenuitem>New</guimenuitem>.  This panel has several
+tabs to be configured.  These are described in the sections
+below.
+</para>
+<section xml:id="sec.runcfg.tab.main">
+<info><title>Main Tab</title></info>
+<para>
+In the main tab enter the name of the build.  A good convention to
+follow is a short name for the document followed by the format of
+the build.  In the example
+shown in <xref linkend="fig.editorTemplates"/>
+the configuration for the HTML build of this document is named
+"DocBook HTML."
+</para>
+<figure xml:id="fig.runcfg.tab.main">
+  <title>External Tools Configuration - Main Tab</title>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/runcfg-tab-main.png"
+                 contentwidth="6in" format="PNG"/>
+    </imageobject>
+    <textobject><phrase>Importing Eclipse Editor Templates</phrase></textobject>
+  </mediaobject>
+</figure>
+<para>
+The <guilabel>Buildfile</guilabel> field holds the location of the Ant script.
+The simplest way to complete this field is to click the
+<guibutton>Browse Workspace...</guibutton> button and navigate to
+<filename>&lt;project&gt;/builds/build-html.xml</filename>.
+In a similar way complete the <guilabel>Base Directory</guilabel>
+field.  Set it to the root of the workspace.
+</para>
+</section>
+
+<section xml:id="sec.runcfg.tab.refresh">
+<info><title>Refresh Tab</title></info>
+<para>
+Eclipse often caches elements of its workspaces to improve performance.
+Changes that an external tool makes to the file system are not immediately
+noticed by the Eclipse workspace.  This can always be remedied manually
+by selecting an altered resource (or folder containing it) and pushing
+the <guibutton>F5</guibutton> on your keyboard.  This tab provides for
+accomplishing this automatically.  Several operations are available.
+The trick is to only refresh as much as you need since the more you ask
+to be refreshed, the longer it takes.  In our case, we want to refresh
+the <filename class="directory">out</filename> directory since that is
+where our build scripts place their artifacts.
+</para>
+<para>
+Check the box marked 
+<guibutton>Refresh resources upon completion</guibutton>.
+We won't necessarily have a resource selected when the build script is
+run, so it's safest to choose <guibutton>Specify resources</guibutton>
+and click its button.  Choose the 
+<filename class="directory">out</filename> directory.
+</para>
+<figure xml:id="fig.runcfg.tab.refresh">
+  <title>External Tools Configuration - Refresh Tab</title>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/runcfg-tab-refresh.png"
+                 contentwidth="6in" format="PNG"/>
+    </imageobject>
+    <textobject><phrase>Importing Eclipse Editor Templates</phrase></textobject>
+  </mediaobject>
+</figure>
+</section>
+
+<section xml:id="sec.runcfg.tab.build">
+<info><title>Build Tab</title></info>
+Uncheck the <guibutton>Build before launch</guibutton> box.  In this case,
+the Ant script is doing all the necessary building.  No workspace builds
+are necessary.
+</section>
+
+<section xml:id="sec.runcfg.tab.target">
+<info><title>Targets Tab</title></info>
+<para>
+An Ant script often has several <firstterm>targets</firstterm> that represent
+the production of some artifact.  This panel allows one to choose a particular
+one.  In the example shown in <xref linkend="fig.runcfg.tab.target"/>,
+the <guibutton>zip.html</guibutton> box is selected.  As it happens,
+This task declares a dependency on <guibutton>html</guibutton> and
+<guibutton>init</guibutton>.  So those get built, too.
+</para>
+<figure xml:id="fig.runcfg.tab.target">
+  <title>External Tools Configuration - Targets Tab</title>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/runcfg-tab-target.png"
+                 contentwidth="6in" format="PNG"/>
+    </imageobject>
+    <textobject><phrase>Importing Eclipse Editor Templates</phrase></textobject>
+  </mediaobject>
+</figure>
+<para>
+The <guibutton>init</guibutton> button shows an error marker because it
+it is defined in a separate Ant script called
+<filename>build-core.xml</filename> that is referenced by all the other
+scripts.  The Eclipse Ant editor is not yet smart enough to follow
+relationships across files.  Fortunately Ant itself is.
+</para>
+</section>
+
+<section xml:id="sec.runcfg.tab.classpath">
+<info><title>Classpath Tab</title></info>
+<para>
+This is the trickiest one.  We need to include all the JARs that DocBook
+will need to parse and transform DocBook source.  The Xerces and Xalan
+libraries can be downloaded from Apache's
+<link xlink:ref="http://projects.apache.org/projects/xalan_for_java_xslt_processor.html">Xalan</link>
+and
+<link xlink:ref="http://projects.apache.org/projects/xerces_for_java_xml_parser.html">Xerces</link>
+sites.
+But since they are also included with the Eclipse distributions,
+it's easy just to reference them from the Eclipse plugin directory.
+Select the
+<guilabel>User Entries</guilabel> root element in the list and on the
+right click the <guibutton>Add External JARs...</guibutton>.
+Navigate to the <filename class="directory">plugins</filename>
+subdirectory of your Eclipse install root and select the
+four files in <xref linkend="fig.runcfg.tab.classpath"/> that
+begin with <filename>org.apache.x</filename>.
+</para>
+<figure xml:id="fig.runcfg.tab.classpath">
+  <title>External Tools Configuration - Targets Tab</title>
+  <mediaobject>
+    <imageobject>
+      <imagedata fileref="images/runcfg-tab-classpath.png"
+                 contentwidth="6in" format="PNG"/>
+    </imageobject>
+    <textobject><phrase>Importing Eclipse Editor Templates</phrase></textobject>
+  </mediaobject>
+</figure>
+<para>
+The DocBook Xalan extensions, <filename>xalan27.jar</filename>, are in the
+<filename class="directory">extensions</filename> subdirectory of the
+DocBook installation.
+</para>
+</section>
+
+<section xml:id="sec.runcfg.copy">
+<info><title>Copy Configurations</title></info>
+<para>
+Creating the external tool configuration isn't that hard if you know what
+you're doing.  But it's easy to forget if you haven't done it in a while.
+After you've followed these instructions once, it's easier to copy an
+existing configuration than to create a new one from scratch.  You'll
+change the build file and choose different build targets.  But the
+classpaths will stay the same.
+</para>
+<para>
+This will be demonstrated by creating an exernal tools configuration for
+a PDF build.  Open the External Tool Configurations as before.  Right
+click the <guilabel>DocBook HTML</guilabel> entry and select
+<guimenuitem>Duplicate</guimenuitem>.  This creates a new entry
+called <guilabel>DocBook HTML (1)</guilabel>.  It has most of the
+settings you already need.  Make the following changes.
+</para>
+<procedure>
+ <step>Change the name to <guilabel>DocBook PDF</guilabel>.</step>
+ <step>Change the build fil to <filename>build-pdf.xml</filename>.</step>
+ <step>Choose <guilabel>pdf</guilabel> in the <guimenu>Targets</guimenu> tab.</step>
+ <step>Click the <guibutton>Run</guibutton> button to test.</step>
+</procedure>
+<para>
+A similar process can be used for creating an EPUB build.  Also, the same technique
+can be used for builds of other DocBook projects, not just different renderings
+of the same DocBook project.  Just add these extra steps.
+</para>
+<itemizedlist>
+  <listitem>On the <guimenu>Main</guimenu> tab, select the new project for
+    the <guilabel>Base Directory</guilabel> field.
+  </listitem>
+  <listitem>On the <guimenu>Refresh</guimenu> tab select the new
+     <filename class="directory">out</filename> folder for the new project.
+  </listitem>
+</itemizedlist>
+</section>

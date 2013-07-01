@@ -13,7 +13,9 @@ folder of the Starter Kit.
 
 <step>
   <para>
-  Import the DocBook Starter Kit as a plain Eclipse project or
+  Import the DocBook 
+  <link xlink:href="http://pglezen.github.io/DocBookEclipse/StarterKit.zip">Starter Kit</link> 
+  as a plain Eclipse project or
   simply have the files somewhere handy.
   </para>
 </step>
