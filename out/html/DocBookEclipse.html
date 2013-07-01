@@ -3,7 +3,7 @@
         DocBook using your Eclipse Web Tools Platform (WTP)
         environment.  WTP is required only for the XSLT features
         it provides.  This article covers Mac, Linux, and Windows.
-      </p></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#sec.intro">1. Introduction</a></span></dt><dt><span class="section"><a href="#sec.GettingFiles">2. Getting Files</a></span></dt><dd><dl><dt><span class="section"><a href="#N10037">2.1. DocBook Stylesheets</a></span></dt><dt><span class="section"><a href="#N10044">2.2. Formatting Objects (FO)</a></span></dt><dt><span class="section"><a href="#N10064">2.3. OFFO Hyphenation</a></span></dt></dl></dd><dt><span class="section"><a href="#sec.InstallFiles">3. Installing DocBook Files</a></span></dt><dd><dl><dt><span class="section"><a href="#N1007D">3.1. Mac OS X</a></span></dt></dl></dd><dt><span class="section"><a href="#sec.ConfigEclipse">4. New Eclipse Workspace</a></span></dt><dt><span class="section"><a href="#sec.NewProject">5. Configuring a New DocBook Project</a></span></dt><dt><span class="section"><a href="#sec.References">6. References</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sec.intro"></a>1.&nbsp;Introduction</h2></div></div></div><p>
+      </p></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#sec.intro">1. Introduction</a></span></dt><dt><span class="section"><a href="#sec.GettingFiles">2. Getting Files</a></span></dt><dd><dl><dt><span class="section"><a href="#N10037">2.1. DocBook Stylesheets</a></span></dt><dt><span class="section"><a href="#N10044">2.2. Formatting Objects (FO)</a></span></dt><dt><span class="section"><a href="#N10064">2.3. OFFO Hyphenation</a></span></dt></dl></dd><dt><span class="section"><a href="#sec.InstallFiles">3. Installing DocBook Files</a></span></dt><dd><dl><dt><span class="section"><a href="#N1007D">3.1. Mac OS X</a></span></dt></dl></dd><dt><span class="section"><a href="#sec.ConfigEclipse">4. New Eclipse Workspace</a></span></dt><dt><span class="section"><a href="#sec.NewProject">5. Configuring a New DocBook Project</a></span></dt><dt><span class="section"><a href="#sec.RunConfig">6. External Tools Configuration</a></span></dt><dd><dl><dt><span class="section"><a href="#sec.runcfg.tab.main">6.1. Main Tab</a></span></dt><dt><span class="section"><a href="#sec.runcfg.tab.refresh">6.2. Refresh Tab</a></span></dt><dt><span class="section"><a href="#sec.runcfg.tab.build">6.3. Build Tab</a></span></dt><dt><span class="section"><a href="#sec.runcfg.tab.target">6.4. Targets Tab</a></span></dt><dt><span class="section"><a href="#sec.runcfg.tab.classpath">6.5. Classpath Tab</a></span></dt><dt><span class="section"><a href="#sec.runcfg.copy">6.6. Copy Configurations</a></span></dt></dl></dd><dt><span class="section"><a href="#sec.References">7. References</a></span></dt></dl></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sec.intro"></a>1.&nbsp;Introduction</h2></div></div></div><p>
 For this version of the article, I'm going to assume you have some reason to
 learn DocBook rather than try to provide a motivation.  But just in case you
 stumbled on this document expecting an office suite replacement for products
@@ -123,7 +123,9 @@ of new source files.  These are located in the
 <code class="filename">templates</code>
 folder of the Starter Kit.
 </p><div class="procedure"><ol class="procedure" type="1"><li class="step"><p>
-  Import the DocBook Starter Kit as a plain Eclipse project or
+  Import the DocBook 
+  <a class="link" href="http://pglezen.github.io/DocBookEclipse/StarterKit.zip" target="_top">Starter Kit</a> 
+  as a plain Eclipse project or
   simply have the files somewhere handy.
   </p></li><li class="step"><p>
   Open 
@@ -237,7 +239,115 @@ with soft links and build links.
   CSS files.
   </p></li></ol></div><p>
   You're ready to start writing your DocBook source!
-</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sec.References"></a>6.&nbsp;References</h2></div></div></div><div class="bibliolist"><div class="bibliomixed"><a name="ref.DefinitiveGuide"></a><p class="bibliomixed">[1] 
+</p></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sec.RunConfig"></a>6.&nbsp;External Tools Configuration</h2></div></div></div><p>
+Eclipse uses an 
+<em class="firstterm">external tools configuration</em> to execute
+external tools.  One of the most common external tool is the
+Ant build script.  Several Ant scripts are included in the 
+Starter Kit.  The most convenient way to execute these scripts
+is to execute them from a external tool configuration that
+stores its parameters and dependencies in a single place and
+is invoked at the click of a button. 
+</p><p>
+The external tools configuration dialog is invoked from
+  <span class="guimenu">Run</span> &rarr; <span class="guimenuitem">External Tools</span> &rarr; <span class="guimenuitem">External Tools Configurations</span>.
+Right-click on <span class="guilabel">Ant Build</span> and select 
+<span class="guimenuitem">New</span>.  This panel has several
+tabs to be configured.  These are described in the sections
+below.
+</p><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="sec.runcfg.tab.main"></a>6.1.&nbsp;Main Tab</h3></div></div></div><p>
+In the main tab enter the name of the build.  A good convention to
+follow is a short name for the document followed by the format of
+the build.  In the example
+shown in <a class="xref" href="#fig.editorTemplates" title="Figure&nbsp;2.&nbsp;Importing XML/XSL Editor Templates">Figure&nbsp;2</a>
+the configuration for the HTML build of this document is named
+"DocBook HTML."
+</p><div class="figure"><a name="fig.runcfg.tab.main"></a><p class="title"><b>Figure&nbsp;4.&nbsp;External Tools Configuration - Main Tab</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/runcfg-tab-main.png" width="540" alt="Importing Eclipse Editor Templates"></div></div></div><br class="figure-break"><p>
+The <span class="guilabel">Buildfile</span> field holds the location of the Ant script.
+The simplest way to complete this field is to click the
+<span class="guibutton">Browse Workspace...</span> button and navigate to
+<code class="filename">&lt;project&gt;/builds/build-html.xml</code>.
+In a similar way complete the <span class="guilabel">Base Directory</span>
+field.  Set it to the root of the workspace.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="sec.runcfg.tab.refresh"></a>6.2.&nbsp;Refresh Tab</h3></div></div></div><p>
+Eclipse often caches elements of its workspaces to improve performance.
+Changes that an external tool makes to the file system are not immediately
+noticed by the Eclipse workspace.  This can always be remedied manually
+by selecting an altered resource (or folder containing it) and pushing
+the <span class="guibutton">F5</span> on your keyboard.  This tab provides for
+accomplishing this automatically.  Several operations are available.
+The trick is to only refresh as much as you need since the more you ask
+to be refreshed, the longer it takes.  In our case, we want to refresh
+the <code class="filename">out</code> directory since that is
+where our build scripts place their artifacts.
+</p><p>
+Check the box marked 
+<span class="guibutton">Refresh resources upon completion</span>.
+We won't necessarily have a resource selected when the build script is
+run, so it's safest to choose <span class="guibutton">Specify resources</span>
+and click its button.  Choose the 
+<code class="filename">out</code> directory.
+</p><div class="figure"><a name="fig.runcfg.tab.refresh"></a><p class="title"><b>Figure&nbsp;5.&nbsp;External Tools Configuration - Refresh Tab</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/runcfg-tab-refresh.png" width="540" alt="Importing Eclipse Editor Templates"></div></div></div><br class="figure-break"></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="sec.runcfg.tab.build"></a>6.3.&nbsp;Build Tab</h3></div></div></div>
+Uncheck the <span class="guibutton">Build before launch</span> box.  In this case,
+the Ant script is doing all the necessary building.  No workspace builds
+are necessary.
+</div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="sec.runcfg.tab.target"></a>6.4.&nbsp;Targets Tab</h3></div></div></div><p>
+An Ant script often has several <em class="firstterm">targets</em> that represent
+the production of some artifact.  This panel allows one to choose a particular
+one.  In the example shown in <a class="xref" href="#fig.runcfg.tab.target" title="Figure&nbsp;6.&nbsp;External Tools Configuration - Targets Tab">Figure&nbsp;6</a>,
+the <span class="guibutton">zip.html</span> box is selected.  As it happens,
+This task declares a dependency on <span class="guibutton">html</span> and
+<span class="guibutton">init</span>.  So those get built, too.
+</p><div class="figure"><a name="fig.runcfg.tab.target"></a><p class="title"><b>Figure&nbsp;6.&nbsp;External Tools Configuration - Targets Tab</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/runcfg-tab-target.png" width="540" alt="Importing Eclipse Editor Templates"></div></div></div><br class="figure-break"><p>
+The <span class="guibutton">init</span> button shows an error marker because it
+it is defined in a separate Ant script called
+<code class="filename">build-core.xml</code> that is referenced by all the other
+scripts.  The Eclipse Ant editor is not yet smart enough to follow
+relationships across files.  Fortunately Ant itself is.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="sec.runcfg.tab.classpath"></a>6.5.&nbsp;Classpath Tab</h3></div></div></div><p>
+This is the trickiest one.  We need to include all the JARs that DocBook
+will need to parse and transform DocBook source.  The Xerces and Xalan
+libraries can be downloaded from Apache's
+Xalan
+and
+Xerces
+sites.
+But since they are also included with the Eclipse distributions,
+it's easy just to reference them from the Eclipse plugin directory.
+Select the
+<span class="guilabel">User Entries</span> root element in the list and on the
+right click the <span class="guibutton">Add External JARs...</span>.
+Navigate to the <code class="filename">plugins</code>
+subdirectory of your Eclipse install root and select the
+four files in <a class="xref" href="#fig.runcfg.tab.classpath" title="Figure&nbsp;7.&nbsp;External Tools Configuration - Targets Tab">Figure&nbsp;7</a> that
+begin with <code class="filename">org.apache.x</code>.
+</p><div class="figure"><a name="fig.runcfg.tab.classpath"></a><p class="title"><b>Figure&nbsp;7.&nbsp;External Tools Configuration - Targets Tab</b></p><div class="figure-contents"><div class="mediaobject"><img src="images/runcfg-tab-classpath.png" width="540" alt="Importing Eclipse Editor Templates"></div></div></div><br class="figure-break"><p>
+The DocBook Xalan extensions, <code class="filename">xalan27.jar</code>, are in the
+<code class="filename">extensions</code> subdirectory of the
+DocBook installation.
+</p></div><div class="section"><div class="titlepage"><div><div><h3 class="title"><a name="sec.runcfg.copy"></a>6.6.&nbsp;Copy Configurations</h3></div></div></div><p>
+Creating the external tool configuration isn't that hard if you know what
+you're doing.  But it's easy to forget if you haven't done it in a while.
+After you've followed these instructions once, it's easier to copy an
+existing configuration than to create a new one from scratch.  You'll
+change the build file and choose different build targets.  But the
+classpaths will stay the same.
+</p><p>
+This will be demonstrated by creating an exernal tools configuration for
+a PDF build.  Open the External Tool Configurations as before.  Right
+click the <span class="guilabel">DocBook HTML</span> entry and select
+<span class="guimenuitem">Duplicate</span>.  This creates a new entry
+called <span class="guilabel">DocBook HTML (1)</span>.  It has most of the
+settings you already need.  Make the following changes.
+</p><div class="procedure"><ol class="procedure" type="1"><li class="step">Change the name to <span class="guilabel">DocBook PDF</span>.</li><li class="step">Change the build fil to <code class="filename">build-pdf.xml</code>.</li><li class="step">Choose <span class="guilabel">pdf</span> in the <span class="guimenu">Targets</span> tab.</li><li class="step">Click the <span class="guibutton">Run</span> button to test.</li></ol></div><p>
+A similar process can be used for creating an EPUB build.  Also, the same technique
+can be used for builds of other DocBook projects, not just different renderings
+of the same DocBook project.  Just add these extra steps.
+</p><div class="itemizedlist"><ul class="itemizedlist" style="list-style-type: disc; "><li class="listitem">On the <span class="guimenu">Main</span> tab, select the new project for
+    the <span class="guilabel">Base Directory</span> field.
+  </li><li class="listitem">On the <span class="guimenu">Refresh</span> tab select the new
+     <code class="filename">out</code> folder for the new project.
+  </li></ul></div></div></div><div class="section"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="sec.References"></a>7.&nbsp;References</h2></div></div></div><div class="bibliolist"><div class="bibliomixed"><a name="ref.DefinitiveGuide"></a><p class="bibliomixed">[1] 
     <span class="title">DocBook: The Definitive Guide</span>,
     <span class="date">April, 2012</span>.
     <span class="author"><span class="firstname">Norman</span> <span class="surname">Walsh</span></span>.
